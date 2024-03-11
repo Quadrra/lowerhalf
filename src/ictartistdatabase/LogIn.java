@@ -77,7 +77,6 @@ ResultSet rs=null;
 
         username.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         username.setForeground(new java.awt.Color(204, 204, 204));
-        username.setText("username");
         username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameActionPerformed(evt);
@@ -87,7 +86,6 @@ ResultSet rs=null;
 
         password.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         password.setForeground(new java.awt.Color(204, 204, 204));
-        password.setText("password");
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordActionPerformed(evt);

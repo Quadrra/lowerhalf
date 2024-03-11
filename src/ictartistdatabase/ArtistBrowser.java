@@ -5,7 +5,8 @@
  */
 package ictartistdatabase;
 
-import java.sql.Blob;
+
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -53,9 +54,10 @@ public class ArtistBrowser extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        search.setText(" ");
-        search.setBorder(null);
-        search.setContentAreaFilled(false);
+        search.setBackground(new java.awt.Color(255, 255, 0));
+        search.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        search.setText("Show data");
+        search.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         search.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         search.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         search.addActionListener(new java.awt.event.ActionListener() {
@@ -63,7 +65,7 @@ public class ArtistBrowser extends javax.swing.JFrame {
                 searchActionPerformed(evt);
             }
         });
-        getContentPane().add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(1570, 30, 110, 100));
+        getContentPane().add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 170, 200, 70));
 
         SearchBar.setBackground(new java.awt.Color(247, 247, 247));
         SearchBar.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -121,11 +123,11 @@ public class ArtistBrowser extends javax.swing.JFrame {
 
     private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
         // TODO add your handling code here:
+       
         //dispose();
         //new SearchAdmit().setVisible(true);
-        
+        //fireTableRowsInserted
         try{
-            
             //Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/artistdb","ARTISTDATABASE","password");
             
@@ -133,6 +135,14 @@ public class ArtistBrowser extends javax.swing.JFrame {
             
             String sql = "SELECT * FROM ARTISTDATABASE";
             ResultSet rs = st.executeQuery(sql);
+            
+            //table.removeAll();
+            //table.cl
+            //DefaultTableModel tblModel = new DefaultTableModel();
+            //table.setModel(tblModel);
+            
+            DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
+            tblModel.setRowCount(0);
             
             while(rs.next()){
                 
@@ -143,9 +153,15 @@ public class ArtistBrowser extends javax.swing.JFrame {
                 
                
                 String tbData[] = {artist,section,social};
-                DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
                 
+                //DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
+                
+               
                 tblModel.addRow(tbData);
+               //tblModel.removeRow(ERROR);
+                
+                
+                
             }
                     
             con.close();
