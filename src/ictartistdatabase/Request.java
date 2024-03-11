@@ -5,6 +5,13 @@
  */
 package ictartistdatabase;
 
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Renren
@@ -88,6 +95,8 @@ public class Request extends javax.swing.JFrame {
         getContentPane().add(Admit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 940, 230, 70));
 
         BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lh1/project/IMG/Admit.png"))); // NOI18N
+        BG.setMaximumSize(new java.awt.Dimension(1920, 1080));
+        BG.setMinimumSize(new java.awt.Dimension(1920, 1080));
         getContentPane().add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 2020, 1090));
 
         pack();
@@ -102,9 +111,19 @@ public class Request extends javax.swing.JFrame {
     }//GEN-LAST:event_SectionActionPerformed
 
     private void AdmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdmitActionPerformed
-        // TODO add your handling code here:
-        dispose();
-        new SearchAdmit().setVisible(true);
+   try
+        {
+            String name=Name.getText().trim();
+            String section=Section.getText().trim();
+            String social=Social.getText().trim();
+            Connection con=DriverManager.getConnection("jdbc:derby://localhost:1527/artistdb", "ARTISTDATABASE", "password");
+            Statement st=con.createStatement();
+            st.execute("insert into ARTISTDATABASE values('"+name+"','"+section+"','"+social+"')");
+            JOptionPane.showMessageDialog(this,"Succesfully admitted!");
+    }                                      
+    catch(HeadlessException | SQLException e)
+    {   
+    }
     }//GEN-LAST:event_AdmitActionPerformed
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed

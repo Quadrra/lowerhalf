@@ -5,6 +5,13 @@
  */
 package ictartistdatabase;
 
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Renren
@@ -39,6 +46,11 @@ public class Register extends javax.swing.JFrame {
         Username.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Username.setBorder(null);
         Username.setOpaque(false);
+        Username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UsernameActionPerformed(evt);
+            }
+        });
         getContentPane().add(Username, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 1540, 60));
 
         Password.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -47,6 +59,11 @@ public class Register extends javax.swing.JFrame {
         getContentPane().add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 590, 1540, 70));
 
         SignUp.setContentAreaFilled(false);
+        SignUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SignUpActionPerformed(evt);
+            }
+        });
         getContentPane().add(SignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 860, 350, 120));
 
         Cancel.setBorder(null);
@@ -58,7 +75,7 @@ public class Register extends javax.swing.JFrame {
         });
         getContentPane().add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 860, 350, 120));
 
-        BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ictartistdatabase/Register.png"))); // NOI18N
+        BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lh1/project/IMG/Register.png"))); // NOI18N
         getContentPane().add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
@@ -69,6 +86,25 @@ public class Register extends javax.swing.JFrame {
         dispose();
         new LogIn().setVisible(true);
     }//GEN-LAST:event_CancelActionPerformed
+
+    private void UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsernameActionPerformed
+
+    private void SignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignUpActionPerformed
+        try
+        {
+            String username=Username.getText().trim();
+            String password=Password.getText().trim();
+            Connection con=DriverManager.getConnection("jdbc:derby://localhost:1527/artistdb", "ARTISTDATABASE", "password");
+            Statement st=con.createStatement();
+            st.execute("insert into LOGINDATABASE values('"+username+"','"+password+"')");
+            JOptionPane.showMessageDialog(this,"Succesfully registered!");
+    }                                      
+    catch(HeadlessException | SQLException e)
+    {   
+    }
+    }//GEN-LAST:event_SignUpActionPerformed
 
     /**
      * @param args the command line arguments

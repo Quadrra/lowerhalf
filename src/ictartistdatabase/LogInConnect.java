@@ -20,7 +20,7 @@ public class LogInConnect
         Connection con=null;
         try 
         {
-            con=DriverManager.getConnection("jdbc:derby://localhost:1527/ArtistDB","ARTISTDATABASE","LOGINDATABASE");
+            con=DriverManager.getConnection("jdbc:derby://localhost:1527/artistdb", "ARTISTDATABASE", "password");
             return con;
         } catch (SQLException ex) 
         {

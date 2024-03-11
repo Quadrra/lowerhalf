@@ -5,6 +5,15 @@
  */
 package ictartistdatabase;
 
+import java.sql.Blob;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
+
+
+
 /**
  *
  * @author Renren
@@ -18,6 +27,8 @@ public class ArtistBrowser extends javax.swing.JFrame {
         initComponents();
     }
 
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,18 +38,38 @@ public class ArtistBrowser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        artistdbPUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("artistdbPU").createEntityManager();
+        artistdatabaseQuery = java.beans.Beans.isDesignTime() ? null : artistdbPUEntityManager.createQuery("SELECT a FROM Artistdatabase a");
+        artistdatabaseList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : artistdatabaseQuery.getResultList();
+        artistdatabaseQuery1 = java.beans.Beans.isDesignTime() ? null : artistdbPUEntityManager.createQuery("SELECT a FROM Artistdatabase a");
+        artistdatabaseList1 = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : artistdatabaseQuery1.getResultList();
+        search = new javax.swing.JButton();
         SearchBar = new javax.swing.JTextField();
         Back = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        table = new javax.swing.JTable();
         BG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        search.setText(" ");
+        search.setBorder(null);
+        search.setContentAreaFilled(false);
+        search.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        search.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchActionPerformed(evt);
+            }
+        });
+        getContentPane().add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(1570, 30, 110, 100));
+
         SearchBar.setBackground(new java.awt.Color(247, 247, 247));
         SearchBar.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         SearchBar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         SearchBar.setBorder(null);
-        getContentPane().add(SearchBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 40, 1040, 70));
+        getContentPane().add(SearchBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 40, 1010, 70));
 
         Back.setContentAreaFilled(false);
         Back.addActionListener(new java.awt.event.ActionListener() {
@@ -48,9 +79,36 @@ public class ArtistBrowser extends javax.swing.JFrame {
         });
         getContentPane().add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 270, 80));
 
+        table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "artist", "section", "social"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        table.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tableKeyPressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(table);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, 1140, 670));
+
         BG.setBackground(new java.awt.Color(153, 204, 255));
         BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lh1/project/IMG/Search.png"))); // NOI18N
-        getContentPane().add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 2010, 1120));
+        BG.setMaximumSize(new java.awt.Dimension(1920, 1080));
+        BG.setMinimumSize(new java.awt.Dimension(1920, 1080));
+        getContentPane().add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 2010, 1130));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -60,6 +118,54 @@ public class ArtistBrowser extends javax.swing.JFrame {
         dispose();
         new SearchAdmit().setVisible(true);
     }//GEN-LAST:event_BackActionPerformed
+
+    private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
+        // TODO add your handling code here:
+        //dispose();
+        //new SearchAdmit().setVisible(true);
+        
+        try{
+            
+            //Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/artistdb","ARTISTDATABASE","password");
+            
+            Statement st= con.createStatement();
+            
+            String sql = "SELECT * FROM ARTISTDATABASE";
+            ResultSet rs = st.executeQuery(sql);
+            
+            while(rs.next()){
+                
+                String artist = rs.getString("artist");
+                String section = rs.getString("section");
+                String social = rs.getString("social");
+                
+                
+               
+                String tbData[] = {artist,section,social};
+                DefaultTableModel tblModel = (DefaultTableModel)table.getModel();
+                
+                tblModel.addRow(tbData);
+            }
+                    
+            con.close();
+            
+            
+            
+            
+        }catch(Exception e) {
+            System.out.println(e.getMessage());
+            
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_searchActionPerformed
+
+    private void tableKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tableKeyPressed
+
+    }//GEN-LAST:event_tableKeyPressed
 
     /**
      * @param args the command line arguments
@@ -100,5 +206,13 @@ public class ArtistBrowser extends javax.swing.JFrame {
     private javax.swing.JLabel BG;
     private javax.swing.JButton Back;
     private javax.swing.JTextField SearchBar;
+    private java.util.List<ictartistdatabase.Artistdatabase> artistdatabaseList;
+    private java.util.List<ictartistdatabase.Artistdatabase> artistdatabaseList1;
+    private javax.persistence.Query artistdatabaseQuery;
+    private javax.persistence.Query artistdatabaseQuery1;
+    private javax.persistence.EntityManager artistdbPUEntityManager;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton search;
+    private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 }

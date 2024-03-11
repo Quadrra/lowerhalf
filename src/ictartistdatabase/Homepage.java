@@ -59,6 +59,8 @@ public class Homepage extends javax.swing.JFrame {
         getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 390, 90, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lh1/project/IMG/TITLEPAGE.png"))); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(1920, 1080));
+        jLabel1.setMinimumSize(new java.awt.Dimension(1920, 1080));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
