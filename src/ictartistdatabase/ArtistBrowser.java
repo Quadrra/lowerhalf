@@ -49,6 +49,7 @@ public class ArtistBrowser extends javax.swing.JFrame {
         Back = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
         BG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -105,6 +106,9 @@ public class ArtistBrowser extends javax.swing.JFrame {
         jScrollPane1.setViewportView(table);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, 1140, 670));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lh1/project/IMG/dlused logo.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1690, 0, -1, -1));
 
         BG.setBackground(new java.awt.Color(153, 204, 255));
         BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lh1/project/IMG/Search.png"))); // NOI18N
@@ -227,6 +231,7 @@ public class ArtistBrowser extends javax.swing.JFrame {
     private javax.persistence.Query artistdatabaseQuery;
     private javax.persistence.Query artistdatabaseQuery1;
     private javax.persistence.EntityManager artistdbPUEntityManager;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton search;
     private javax.swing.JTable table;

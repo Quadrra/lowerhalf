@@ -38,6 +38,7 @@ public class Register extends javax.swing.JFrame {
         Password = new javax.swing.JPasswordField();
         SignUp = new javax.swing.JButton();
         Cancel = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         BG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,6 +75,9 @@ public class Register extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 860, 350, 120));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lh1/project/IMG/dlused logo.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lh1/project/IMG/Register.png"))); // NOI18N
         getContentPane().add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -147,5 +151,6 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JPasswordField Password;
     private javax.swing.JButton SignUp;
     private javax.swing.JTextField Username;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

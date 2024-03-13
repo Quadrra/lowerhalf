@@ -30,6 +30,7 @@ public class SearchAdmit extends javax.swing.JFrame {
         Admit = new javax.swing.JButton();
         Search = new javax.swing.JButton();
         LogOut = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         BG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -75,6 +76,9 @@ public class SearchAdmit extends javax.swing.JFrame {
             }
         });
         getContentPane().add(LogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 360, 110, 30));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ictartistdatabase/dlsud smol logo.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lh1/project/IMG/HOMEPAGE.png"))); // NOI18N
         getContentPane().add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -140,5 +144,6 @@ public class SearchAdmit extends javax.swing.JFrame {
     private javax.swing.JLabel BG;
     private javax.swing.JButton LogOut;
     private javax.swing.JButton Search;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

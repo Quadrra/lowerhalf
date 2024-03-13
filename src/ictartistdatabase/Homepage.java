@@ -29,12 +29,13 @@ public class Homepage extends javax.swing.JFrame {
 
         login = new javax.swing.JButton();
         exit = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        login.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        login.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         login.setForeground(new java.awt.Color(153, 153, 255));
         login.setText("Log in");
         login.setBorderPainted(false);
@@ -44,9 +45,9 @@ public class Homepage extends javax.swing.JFrame {
                 loginActionPerformed(evt);
             }
         });
-        getContentPane().add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 170, 40));
+        getContentPane().add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 680, 410, 110));
 
-        exit.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        exit.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         exit.setForeground(new java.awt.Color(153, 153, 255));
         exit.setText("Exit");
         exit.setBorderPainted(false);
@@ -56,12 +57,15 @@ public class Homepage extends javax.swing.JFrame {
                 exitActionPerformed(evt);
             }
         });
-        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 390, 90, -1));
+        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 830, 230, 60));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lh1/project/IMG/TITLEPAGE.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lh1/project/IMG/dlused logo.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 210, 200));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lh1/project/IMG/Title pagw (2).png"))); // NOI18N
         jLabel1.setMaximumSize(new java.awt.Dimension(1920, 1080));
         jLabel1.setMinimumSize(new java.awt.Dimension(1920, 1080));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -150, 1750, 1260));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -113,6 +117,7 @@ public class Homepage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton exit;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton login;
     // End of variables declaration//GEN-END:variables
 }

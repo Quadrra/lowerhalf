@@ -39,6 +39,10 @@ public class Request extends javax.swing.JFrame {
         Name = new javax.swing.JTextField();
         Back = new javax.swing.JButton();
         Admit = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         BG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -47,7 +51,6 @@ public class Request extends javax.swing.JFrame {
         Section.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Section.setForeground(new java.awt.Color(0, 102, 102));
         Section.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        Section.setText("[Section]");
         Section.setBorder(null);
         Section.setOpaque(false);
         Section.addActionListener(new java.awt.event.ActionListener() {
@@ -60,7 +63,6 @@ public class Request extends javax.swing.JFrame {
         Social.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Social.setForeground(new java.awt.Color(0, 102, 102));
         Social.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        Social.setText("[Social Media]");
         Social.setBorder(null);
         Social.setOpaque(false);
         Social.addActionListener(new java.awt.event.ActionListener() {
@@ -73,7 +75,6 @@ public class Request extends javax.swing.JFrame {
         Name.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Name.setForeground(new java.awt.Color(0, 102, 102));
         Name.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        Name.setText("[Artist's Name]");
         Name.setBorder(null);
         Name.setOpaque(false);
         getContentPane().add(Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, 850, 110));
@@ -93,6 +94,24 @@ public class Request extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Admit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 940, 230, 70));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lh1/project/IMG/dlused logo.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Section");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 700, 120, 30));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Artist name");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 250, 120, 30));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Socials");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 470, 120, 30));
 
         BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lh1/project/IMG/Admit.png"))); // NOI18N
         BG.setMaximumSize(new java.awt.Dimension(1920, 1080));
@@ -174,5 +193,9 @@ public class Request extends javax.swing.JFrame {
     private javax.swing.JTextField Name;
     private javax.swing.JTextField Section;
     private javax.swing.JTextField Social;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }

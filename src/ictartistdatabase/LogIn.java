@@ -42,6 +42,7 @@ ResultSet rs=null;
         password = new javax.swing.JPasswordField();
         LogIn = new javax.swing.JButton();
         Back = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         BG = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -114,6 +115,9 @@ ResultSet rs=null;
             }
         });
         getContentPane().add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 86, 35));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lh1/project/IMG/dlused logo.png"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, -1, 200));
 
         BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lh1/project/IMG/KYs.png"))); // NOI18N
         getContentPane().add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -210,6 +214,7 @@ new Homepage().setVisible(true);
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPasswordField password;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
